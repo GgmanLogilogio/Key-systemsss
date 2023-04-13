@@ -1,0 +1,133 @@
+lua
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Player = game.Players.LocalPlayer
+
+local Window = OrionLib:MakeWindow({Name = "MrBea Hub | Key System", HidePremium = false, IntroText = "Name Hub"})
+
+OrionLib:MakeNotification({
+
+    Name = "Logged In!",
+
+    Content = "You are logged in as "..Player.Name.." ",
+
+    Image = "rbxassetid://4483345998",
+
+    Time = 5
+
+})
+
+_G.Key = "1jo21njakubrisjl"
+
+_G.KeyInput = "string"
+
+function MakeScriptHub()
+
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/GgmanLogilogio/Ulitilities/main/Many%20Funck", true))()
+
+end    
+
+function InorrectKeyNotification()
+
+    OrionLib:MakeNotification({
+
+        Name = "Incorrect Key!",
+
+        Content = "You have entered the incorrect key! Get key on our Discord Server",
+
+        Image = "rbxassetid://4483345998",
+
+        Time = 5
+
+    })
+
+end
+
+function CorrectKeyNotification()
+
+    OrionLib:MakeNotification({
+
+        Name = "Correct Key!",
+
+        Content = "You have entered the correct key!",
+
+        Image = "rbxassetid://4483345998",
+
+        Time = 5
+
+    })
+
+end
+
+local Tab = Window:MakeTab({
+
+    Name = "Key",
+
+    Icon = "rbxassetid://4483345998",
+
+    PremiumOnly = false
+
+})
+
+Tab:AddTextbox({
+
+    Name = "Enter Key",
+
+    Default = "",
+
+    TextDisappear = true,
+
+    Callback = function(Value)
+
+        _G.KeyInput = Value
+
+    end      
+
+})
+
+Tab:AddButton({
+
+    Name = "Enter",
+
+    Callback = function()
+
+              if _G.KeyInput == _G.Key then
+
+            MakeScriptHub()
+
+            CorrectKeyNotification()
+
+            else
+
+                InorrectKeyNotification()
+
+            end
+
+      end    
+
+})
+
+Tab:AddButton({
+
+    Name = "Copy Discord",
+
+    Callback = function()
+
+              setclipboard("https://discord.gg/aFEZg9ZZ")
+
+            OrionLib:MakeNotification({
+
+            Name = "Discord Link Sended",
+
+            Content = "Discord Link copied from your Clipboard",
+
+            Image = "rbxassetid://4483345998",
+
+            Time = 5
+
+    })
+
+      end    
+
+})
